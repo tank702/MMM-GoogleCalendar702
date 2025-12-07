@@ -28,8 +28,9 @@
     "update": "git pull && npm install"
   },
   "dependencies": {
-    "googleapis": "^128.0.0",
-    "moment": "^2.29.4"
+    "node-ical": "^0.17.1",
+    "moment": "^2.29.4",
+    "axios": "^1.6.2"
   },
   "devDependencies": {},
   "engines": {

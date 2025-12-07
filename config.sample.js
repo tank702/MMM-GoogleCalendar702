@@ -11,6 +11,9 @@
     module: "MMM-GoogleCalendar702",
     position: "top_left",
     config: {
+        calendars: [
+            "https://calendar.google.com/calendar/ical/YOUR_EMAIL%40gmail.com/private-YOUR_KEY/basic.ics"
+        ],
         view: "month",
         size: "large",
         theme: "glass"
@@ -36,9 +39,10 @@
         maxDays: 365,               // How many days ahead to fetch events
         
         // CALENDAR SETTINGS
-        calendars: [],              // Empty array = all calendars
-                                    // Or specify calendar IDs:
-                                    // ["primary", "work@company.com", "family@group.calendar.google.com"]
+        calendars: [],              // Array of iCal URLs
+                                    // Simple format: ["https://calendar.google.com/.../basic.ics"]
+                                    // Or detailed: [{name: "Work", url: "https://...", color: "#ea4335"}]
+                                    // Get URLs from: Calendar Settings → Integrate → Secret iCal URL
         
         updateInterval: 300000,     // Update frequency in milliseconds (5 minutes)
         fadeSpeed: 2000,            // Fade animation speed in milliseconds
@@ -51,13 +55,13 @@
         timeFormat: "12",           // Options: "12" (12-hour) or "24" (24-hour)
         dateFormat: "MMM D",        // Date format using Moment.js syntax
         
-        // TOUCH & INTERACTION
+        // TOUCH & INTERACTION (iCal is read-only)
         touchEnabled: true,         // Enable touch screen controls
-        virtualKeyboard: true,      // Show on-screen keyboard for event creation
-        allowEventCreation: true,   // Allow creating new events from the mirror
-        allowEventEditing: true,    // Allow editing existing events
-        allowEventDeletion: true,   // Allow deleting events
-        dragAndDrop: true,          // Enable drag-and-drop (future feature)
+        virtualKeyboard: false,     // Disabled (iCal is read-only)
+        allowEventCreation: false,  // Disabled (iCal is read-only)
+        allowEventEditing: false,   // Disabled (iCal is read-only)
+        allowEventDeletion: false,  // Disabled (iCal is read-only)
+        dragAndDrop: false,         // Disabled (iCal is read-only)
         
         // EVENT DISPLAY
         showEventDetails: true,     // Show detailed event information in modals

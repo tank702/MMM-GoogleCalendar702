@@ -1,0 +1,77 @@
+// --------------------------------------------------------------------
+// ICAL EXAMPLES - How to use iCal URLs
+// --------------------------------------------------------------------
+
+// Example 1: Single Calendar (Simple Format)
+{
+    module: "MMM-GoogleCalendar702",
+    position: "top_left",
+    config: {
+        calendars: [
+            "https://calendar.google.com/calendar/ical/your-email%40gmail.com/private-abc123/basic.ics"
+        ]
+    }
+}
+
+// Example 2: Multiple Calendars (Simple Format)
+{
+    module: "MMM-GoogleCalendar702",
+    position: "top_left",
+    config: {
+        calendars: [
+            "https://calendar.google.com/calendar/ical/personal%40gmail.com/private-abc123/basic.ics",
+            "https://calendar.google.com/calendar/ical/work%40company.com/private-def456/basic.ics",
+            "https://calendar.google.com/calendar/ical/family%40group.calendar.google.com/private-ghi789/basic.ics"
+        ]
+    }
+}
+
+// Example 3: Multiple Calendars (Advanced Format with Custom Names & Colors)
+{
+    module: "MMM-GoogleCalendar702",
+    position: "top_left",
+    config: {
+        calendars: [
+            {
+                name: "Personal",
+                url: "https://calendar.google.com/calendar/ical/personal%40gmail.com/private-abc123/basic.ics",
+                color: "#4285f4"  // Blue
+            },
+            {
+                name: "Work",
+                url: "https://calendar.google.com/calendar/ical/work%40company.com/private-def456/basic.ics",
+                color: "#ea4335"  // Red
+            },
+            {
+                name: "Family",
+                url: "https://calendar.google.com/calendar/ical/family%40group.calendar.google.com/private-ghi789/basic.ics",
+                color: "#34a853"  // Green
+            }
+        ]
+    }
+}
+
+// Example 4: Mixed Calendar Services (Google + Apple + Outlook)
+{
+    module: "MMM-GoogleCalendar702",
+    position: "top_left",
+    config: {
+        calendars: [
+            {
+                name: "Google Personal",
+                url: "https://calendar.google.com/calendar/ical/personal%40gmail.com/private-abc123/basic.ics",
+                color: "#4285f4"
+            },
+            {
+                name: "iCloud Calendar",
+                url: "https://p01-caldav.icloud.com/published/2/...long-url.../basic.ics",
+                color: "#ff6d00"
+            },
+            {
+                name: "Outlook Work",
+                url: "https://outlook.office365.com/owa/calendar/.../calendar.ics",
+                color: "#ea4335"
+            }
+        ]
+    }
+}

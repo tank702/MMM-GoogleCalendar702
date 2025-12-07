@@ -14,8 +14,8 @@ Module.register("MMM-GoogleCalendar702", {
         maxEvents: 50,
         maxDays: 365,
         
-        // Calendar Settings
-        calendars: [], // Array of calendar IDs to display
+        // Calendar Settings (iCal URLs)
+        calendars: [], // Array of iCal URLs or calendar objects
         updateInterval: 300000, // 5 minutes
         fadeSpeed: 2000,
         animationSpeed: 1000,
@@ -27,13 +27,13 @@ Module.register("MMM-GoogleCalendar702", {
         timeFormat: "12", // "12" or "24"
         dateFormat: "MMM D",
         
-        // Touch & Interaction
+        // Touch & Interaction (Note: iCal is read-only)
         touchEnabled: true,
-        virtualKeyboard: true,
-        allowEventCreation: true,
-        allowEventEditing: true,
-        allowEventDeletion: true,
-        dragAndDrop: true,
+        virtualKeyboard: false,  // Disabled for iCal (read-only)
+        allowEventCreation: false,  // Disabled for iCal (read-only)
+        allowEventEditing: false,   // Disabled for iCal (read-only)
+        allowEventDeletion: false,  // Disabled for iCal (read-only)
+        dragAndDrop: false,          // Disabled for iCal (read-only)
         
         // Event Display
         showEventDetails: true,
@@ -43,7 +43,6 @@ Module.register("MMM-GoogleCalendar702", {
         
         // Advanced
         debug: false,
-        authMethod: "oauth2", // "oauth2" or "serviceAccount"
     },
 
     requiresVersion: "2.1.0",
@@ -927,14 +926,23 @@ Module.register("MMM-GoogleCalendar702", {
     getAuthenticationPrompt: function(wrapper) {
         wrapper.innerHTML = `
             <div class="auth-prompt">
-                <i class="fa fa-google fa-3x"></i>
-                <h2>Google Calendar Authentication Required</h2>
-                <p>Please complete the authentication setup:</p>
+                <i class="fa fa-calendar fa-3x"></i>
+                <h2>Calendar Setup Required</h2>
+                <p>Add your calendar iCal URLs to the config:</p>
                 <ol>
-                    <li>Run: <code>cd ~/MagicMirror/modules/MMM-GoogleCalendar</code></li>
-                    <li>Run: <code>npm run auth</code></li>
-                    <li>Follow the authentication prompts</li>
+                    <li>Open <a href="https://calendar.google.com" target="_blank">Google Calendar</a></li>
+                    <li>Click Settings (gear icon) → Settings</li>
+                    <li>Select your calendar from the left menu</li>
+                    <li>Scroll to "Integrate calendar"</li>
+                    <li>Copy the <strong>Secret address in iCal format</strong></li>
+                    <li>Add to your MagicMirror config.js</li>
                 </ol>
+                <p>Example config:</p>
+                <code>
+                calendars: [<br>
+                &nbsp;&nbsp;"https://calendar.google.com/calendar/ical/...@group.calendar.google.com/private-.../basic.ics"<br>
+                ]
+                </code>
             </div>
         `;
         return wrapper;

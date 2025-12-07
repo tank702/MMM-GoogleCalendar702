@@ -15,7 +15,7 @@ Get MMM-GoogleCalendar702 up and running in 5 minutes!
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/tank702/MMM-GoogleCalendar702.git
+git clone https://github.com/tank702/MMM-GoogleCalendar702
 cd MMM-GoogleCalendar
 npm install
 ```
