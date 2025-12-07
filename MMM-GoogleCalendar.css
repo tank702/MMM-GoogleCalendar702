@@ -1,0 +1,900 @@
+/* MMM-GoogleCalendar Styles
+ * Stunning Google Calendar Module with Glass-Morphism Design
+ * By Tank702
+ */
+
+/* =============== BASE STYLES =============== */
+
+.google-calendar-wrapper {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    color: #fff;
+    position: relative;
+}
+
+/* =============== SIZE VARIATIONS =============== */
+
+.google-calendar-wrapper.full {
+    width: 100vw;
+    height: 100vh;
+}
+
+.google-calendar-wrapper.large {
+    width: 95vw;
+    max-width: 1400px;
+    height: 90vh;
+    max-height: 900px;
+}
+
+.google-calendar-wrapper.medium {
+    width: 80vw;
+    max-width: 1000px;
+    height: 75vh;
+    max-height: 700px;
+}
+
+.google-calendar-wrapper.compact {
+    width: 600px;
+    height: 500px;
+}
+
+/* =============== THEME: GLASS-MORPHISM =============== */
+
+.google-calendar-wrapper.glass .calendar-container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 20px;
+}
+
+.google-calendar-wrapper.glass .calendar-header {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.google-calendar-wrapper.glass .day-cell {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.google-calendar-wrapper.glass .day-cell:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* =============== THEME: MODERN =============== */
+
+.google-calendar-wrapper.modern .calendar-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.google-calendar-wrapper.modern .day-cell {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+}
+
+/* =============== THEME: CLASSIC =============== */
+
+.google-calendar-wrapper.classic .calendar-container {
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.google-calendar-wrapper.classic .day-cell {
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+}
+
+/* =============== CALENDAR HEADER =============== */
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.calendar-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.current-period {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    text-align: center;
+    flex: 1;
+}
+
+.view-switcher {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 4px;
+}
+
+.view-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.view-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.view-btn.active {
+    background: rgba(66, 133, 244, 0.9);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(66, 133, 244, 0.4);
+}
+
+/* =============== BUTTONS =============== */
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon-btn:active {
+    transform: translateY(0);
+}
+
+.add-event-btn {
+    background: rgba(52, 168, 83, 0.9);
+    border-color: rgba(52, 168, 83, 1);
+}
+
+.add-event-btn:hover {
+    background: rgba(52, 168, 83, 1);
+}
+
+/* =============== MONTH VIEW =============== */
+
+.month-view {
+    width: 100%;
+}
+
+.weekday-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px;
+    opacity: 0.8;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.day-cell {
+    min-height: 100px;
+    padding: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.day-cell.today {
+    border: 2px solid #4285f4;
+    box-shadow: 0 0 20px rgba(66, 133, 244, 0.4);
+}
+
+.day-cell.other-month {
+    opacity: 0.4;
+}
+
+.day-cell.weekend {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.day-number {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.day-events {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* =============== EVENT CHIPS =============== */
+
+.event-chip {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.event-chip:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.event-title {
+    font-weight: 500;
+}
+
+.more-events {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    text-align: center;
+}
+
+.more-events:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* =============== WEEK VIEW =============== */
+
+.week-view {
+    width: 100%;
+    height: 100%;
+}
+
+.week-header {
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 0;
+    border-radius: 12px;
+}
+
+.time-corner {
+    grid-column: 1;
+}
+
+.week-day-header {
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.week-day-header.today {
+    background: rgba(66, 133, 244, 0.3);
+    border: 1px solid rgba(66, 133, 244, 0.6);
+}
+
+.day-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.day-date {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.time-grid {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+}
+
+.time-row {
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr);
+    gap: 8px;
+    min-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.time-label {
+    text-align: right;
+    padding-right: 12px;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    padding-top: 4px;
+}
+
+.time-slot {
+    position: relative;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.time-slot:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* =============== EVENT BLOCKS =============== */
+
+.event-block {
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    z-index: 1;
+}
+
+.event-block:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.event-block.dragging {
+    opacity: 0.6;
+    cursor: move;
+}
+
+.event-block .event-time {
+    font-size: 0.7rem;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.event-block .event-title {
+    font-weight: 500;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =============== DAY VIEW =============== */
+
+.day-view {
+    width: 100%;
+    height: 100%;
+}
+
+.day-header {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+}
+
+.day-timeline {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+}
+
+.hour-block {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    min-height: 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.event-area {
+    position: relative;
+    padding: 8px;
+}
+
+/* =============== AGENDA VIEW =============== */
+
+.agenda-view {
+    width: 100%;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.date-section {
+    margin-bottom: 30px;
+}
+
+.date-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    border-left: 4px solid #4285f4;
+}
+
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.agenda-event-item {
+    display: flex;
+    gap: 12px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.agenda-event-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(4px);
+}
+
+.event-color-bar {
+    width: 4px;
+    border-radius: 2px;
+}
+
+.event-content {
+    flex: 1;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.agenda-event-item .event-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.agenda-event-item .event-time {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.event-location {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 6px;
+}
+
+.event-location i {
+    margin-right: 6px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    opacity: 0.6;
+}
+
+.empty-state i {
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+}
+
+/* =============== EVENT MODAL =============== */
+
+.event-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s;
+}
+
+.modal-content {
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-header {
+    padding: 25px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row i {
+    width: 20px;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+
+.detail-row span {
+    flex: 1;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    padding: 20px 25px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.modal-actions .icon-btn.danger {
+    background: rgba(234, 67, 53, 0.9);
+    border-color: rgba(234, 67, 53, 1);
+}
+
+.modal-actions .icon-btn.danger:hover {
+    background: rgba(234, 67, 53, 1);
+}
+
+/* =============== VIRTUAL KEYBOARD =============== */
+
+.virtual-keyboard {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+    animation: slideUp 0.3s;
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.key {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    min-width: 45px;
+    transition: all 0.1s;
+}
+
+.key:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.key:active {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.key.space {
+    flex: 1;
+    max-width: 300px;
+}
+
+.key.done {
+    background: rgba(66, 133, 244, 0.9);
+    border-color: rgba(66, 133, 244, 1);
+    min-width: 100px;
+}
+
+.key.done:hover {
+    background: rgba(66, 133, 244, 1);
+}
+
+/* =============== AUTHENTICATION & LOADING =============== */
+
+.auth-prompt,
+.loading-screen {
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.auth-prompt i,
+.loading-screen i {
+    margin-bottom: 30px;
+    opacity: 0.7;
+}
+
+.auth-prompt h2 {
+    margin: 20px 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.auth-prompt p {
+    margin: 15px 0;
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+.auth-prompt ol {
+    text-align: left;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.auth-prompt li {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.auth-prompt code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.loading-screen p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* =============== ANIMATIONS =============== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =============== SCROLLBAR STYLING =============== */
+
+.time-grid::-webkit-scrollbar,
+.day-timeline::-webkit-scrollbar,
+.agenda-view::-webkit-scrollbar,
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.time-grid::-webkit-scrollbar-track,
+.day-timeline::-webkit-scrollbar-track,
+.agenda-view::-webkit-scrollbar-track,
+.modal-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.time-grid::-webkit-scrollbar-thumb,
+.day-timeline::-webkit-scrollbar-thumb,
+.agenda-view::-webkit-scrollbar-thumb,
+.modal-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.time-grid::-webkit-scrollbar-thumb:hover,
+.day-timeline::-webkit-scrollbar-thumb:hover,
+.agenda-view::-webkit-scrollbar-thumb:hover,
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* =============== RESPONSIVE DESIGN =============== */
+
+@media (max-width: 1024px) {
+    .google-calendar-wrapper.large,
+    .google-calendar-wrapper.medium {
+        width: 95vw;
+    }
+    
+    .current-period {
+        font-size: 1.2rem;
+    }
+    
+    .day-cell {
+        min-height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-header {
+        flex-wrap: wrap;
+    }
+    
+    .view-switcher {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .week-header {
+        grid-template-columns: 50px repeat(7, 1fr);
+    }
+    
+    .time-row {
+        grid-template-columns: 50px repeat(7, 1fr);
+    }
+    
+    .day-cell {
+        min-height: 60px;
+        padding: 4px;
+    }
+    
+    .event-chip {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+    }
+}
+
+/* =============== COMPACT MODE ADJUSTMENTS =============== */
+
+.google-calendar-wrapper.compact .calendar-header {
+    padding: 10px;
+}
+
+.google-calendar-wrapper.compact .current-period {
+    font-size: 1rem;
+}
+
+.google-calendar-wrapper.compact .view-btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+}
+
+.google-calendar-wrapper.compact .day-cell {
+    min-height: 60px;
+    padding: 4px;
+}
+
+.google-calendar-wrapper.compact .day-number {
+    font-size: 0.8rem;
+}
+
+.google-calendar-wrapper.compact .event-chip {
+    font-size: 0.65rem;
+    padding: 2px 4px;
+}

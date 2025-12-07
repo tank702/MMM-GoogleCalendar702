@@ -1,0 +1,38 @@
+{
+  "name": "mmm-googlecalendar702",
+  "version": "1.0.0",
+  "description": "A stunning Google Calendar module for MagicMirror with touch support and virtual keyboard",
+  "main": "MMM-GoogleCalendar702.js",
+  "author": "Tank702",
+  "license": "MIT",
+  "keywords": [
+    "MagicMirror",
+    "Calendar",
+    "Google Calendar",
+    "Touch Screen",
+    "Smart Mirror"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tank702/MMM-GoogleCalendar702"
+  },
+  "bugs": {
+    "url": "https://github.com/tank702/MMM-GoogleCalendar702/issues"
+  },
+  "homepage": "https://github.com/tank702/MMM-GoogleCalendar702#readme",
+  "scripts": {
+    "install": "npm install && node scripts/check-setup.js",
+    "setup": "node scripts/setup.js",
+    "auth": "node scripts/authenticate.js",
+    "test": "echo \"No tests specified yet\"",
+    "update": "git pull && npm install"
+  },
+  "dependencies": {
+    "googleapis": "^128.0.0",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
